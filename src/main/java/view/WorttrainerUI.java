@@ -1,6 +1,6 @@
 package view;
 
-import jhuber.control.WorttrainerControl;
+import control.WorttrainerControl;
 
 import javax.swing.*;
 import java.awt.*;

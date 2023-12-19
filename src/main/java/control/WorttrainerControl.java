@@ -1,9 +1,9 @@
 package control;
 
-import jhuber.model.WortTrainer;
-import jhuber.model.WortTrainerSave;
-import jhuber.view.WorttrainerFrame;
-import jhuber.view.WorttrainerUI;
+import model.WortTrainer;
+import model.WortTrainerSave;
+import view.WorttrainerFrame;
+import view.WorttrainerUI;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
