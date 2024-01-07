@@ -59,17 +59,17 @@ public class WordTrainerUI extends JPanel {
         this.buttons[3].addActionListener(control);
     }
 
-    public void setImage(String url){
-        try {
-            ImageIcon icon = new ImageIcon(new URL(url));
+    public void setImage(URL url){
+        //try {
+            ImageIcon icon = new ImageIcon(url);
             Image image = icon.getImage();
             //Skalierung
             int width = (int)(icon.getIconWidth() * (250.0 / icon.getIconHeight()));
             image = image.getScaledInstance(width, 250, Image.SCALE_SMOOTH);
             this.image.setIcon(new ImageIcon(image));
-        } catch (MalformedURLException e){
-            JOptionPane.showMessageDialog(null, "Keine URL!");
-        }
+        //} //catch (MalformedURLException e){
+            //JOptionPane.showMessageDialog(null, "Keine URL!");
+        //}
 
     }
     public void setStats(int correct, int checked){
