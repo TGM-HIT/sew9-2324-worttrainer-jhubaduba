@@ -1,17 +1,21 @@
 package model;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class WordPair {
     private String word;
     private URL url;
 
-    public WordPair(String word, URL url){
+    public WordPair(String word, URL url) throws MalformedURLException{
         this.setWord(word);
         this.setUrl(url);
     }
 
     public void setWord(String word) {
+        if(word == null || word.length() <= 2){
+            throw new IllegalArgumentException("Invalid word");
+        }
         this.word = word;
     }
 

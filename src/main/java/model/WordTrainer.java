@@ -28,11 +28,11 @@ public class WordTrainer {
         return getCurrentEntry();
      }
 
-     public WordPair getCurrentEntry() throws IllegalArgumentException{
+     public WordPair getCurrentEntry() throws IndexOutOfBoundsException{
         if(this.index != -1){
             return this.wordList.get(index);
         }
-        throw new IllegalArgumentException("No entry selected!");
+        throw new IndexOutOfBoundsException("No entry selected!");
      }
 
      public boolean check(String word){

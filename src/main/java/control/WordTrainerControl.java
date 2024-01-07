@@ -17,10 +17,10 @@ public class WordTrainerControl implements ActionListener {
 
     public WordTrainerControl(){
         this.ui = new WordTrainerUI(this);
-        this.loadGame();
+        this.initGame();
         this.frame = new WordTrainerFrame("WordTrainer", ui);
     }
-    public void loadGame(){
+    public void initGame(){
         this.trainer = new WordTrainer();
         try {
             this.trainer.addEntry(new WordPair("Car", new URL("https://upload.wikimedia.org/wikipedia/commons/8/8c/1986_Porsche_911_SC.jpg")));
@@ -28,8 +28,6 @@ public class WordTrainerControl implements ActionListener {
             this.trainer.addEntry(new WordPair("Airplane", new URL("https://upload.wikimedia.org/wikipedia/commons/e/ef/G-BGMP_Reims_F172_%40Cotswold_Airport%2C_July_2005.jpg")));
             this.trainer.addEntry(new WordPair("Train", new URL("https://upload.wikimedia.org/wikipedia/commons/8/8c/Austria_1044_semmering.jpg")));
         } catch (MalformedURLException e){
-            e.printStackTrace();
-        } catch (IllegalArgumentException e){
             e.printStackTrace();
         }
         this.trainer.getRandomEntry();
@@ -47,17 +45,18 @@ public class WordTrainerControl implements ActionListener {
 
         if(e.getActionCommand().equals("Reset")){
             this.ui.resetUI();
-            this.loadGame();
+            this.initGame();
             this.trainer.resetStats();
         }
 
         if(e.getActionCommand().equals("Add word")){
             try{
-                this.trainer.addEntry(new WordPair(this.ui.getWord(), new URL(this.ui.showInput("Insert URL!"))));
-            } catch (IllegalArgumentException | MalformedURLException e1){
-                ui.showOutput("Non valid input");
-            } catch (NullPointerException e1){
-                System.out.println("ADD ABORTED");
+                String input = this.ui.showInput("Insert URL!");
+                if(input != null) {
+                    this.trainer.addEntry(new WordPair(this.ui.getWord(), new URL(input)));
+                }
+            } catch (MalformedURLException | IllegalArgumentException e1){
+                this.ui.showOutput(e1.getMessage());
             }
         }
 
