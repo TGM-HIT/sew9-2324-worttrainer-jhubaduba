@@ -1,9 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class WordPair {
+public class WordPair implements Serializable {
     private String word;
     private URL url;
 

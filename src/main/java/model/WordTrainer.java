@@ -1,9 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class WordTrainer {
+public class WordTrainer implements Serializable {
     private ArrayList<WordPair> wordList;
     private int checks;
     private int correct;
