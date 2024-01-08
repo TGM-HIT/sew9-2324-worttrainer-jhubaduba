@@ -11,8 +11,8 @@ import java.util.Random;
  */
 public class WordTrainer implements Serializable {
     private ArrayList<WordPair> wordList;
-    private int checks;
-    private int correct;
+    private int checks = 0;
+    private int correct = 0;
     private int index = -1;
 
     public WordTrainer(){
@@ -26,24 +26,27 @@ public class WordTrainer implements Serializable {
      * Adds a WordPair to the list of the object
      * @param pair
      */
-    public void addEntry(WordPair pair){
-        this.wordList.add(pair);
+    public boolean addEntry(WordPair pair){
+        return this.wordList.add(pair);
     }
 
     /**
      * Removes a WordPair from the list by searching for the word
      * @param word
      */
-    public void removeEntry(String word){
-        this.wordList.removeIf(wordPair -> wordPair.getWord().equals(word));
+    public boolean removeEntry(String word){
+        return this.wordList.removeIf(wordPair -> wordPair.getWord().equals(word));
     }
 
     /**
      * Selects a random WordPair and returns it
      * @return Random WordPair
      */
-    public WordPair getRandomEntry(){
+    public WordPair getRandomEntry() throws IndexOutOfBoundsException{
         Random r = new Random();
+        if(this.wordList.size() == 0){
+            throw new IndexOutOfBoundsException("WordList is empty");
+        }
         this.index = r.nextInt(this.wordList.size());
         return getCurrentEntry();
     }
