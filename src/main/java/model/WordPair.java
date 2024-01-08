@@ -4,10 +4,21 @@ import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * WordPair consists of a Word and URL which represents an image.
+ * @author Julian Huber
+ * @version 2024-01-08
+ */
 public class WordPair implements Serializable {
     private String word;
     private URL url;
 
+    /**
+     * Constructor - creates WordPair object
+     * @param word
+     * @param url
+     * @throws MalformedURLException
+     */
     public WordPair(String word, URL url) throws MalformedURLException{
         this.setWord(word);
         this.setUrl(url);
@@ -36,6 +47,11 @@ public class WordPair implements Serializable {
         return url;
     }
 
+    /**
+     * Checks a given URL for validity using regex
+     * @param url
+     * @return boolean
+     */
     public boolean checkURL(URL url){
         return url.toString().matches("(?:(?:https?|ftp):\\/\\/|\\b(?:[a-z\\d]+\\.))(?:(?:[^\\s()<>]+|\\((?:[^\\s()<>]+|(?:\\([^\\s()<>]+\\)))?\\))+(?:\\((?:[^\\s()<>]+|(?:\\(?:[^\\s()<>]+\\)))?\\)|[^\\s`!()\\[\\]{};:'\".,<>?«»“”‘’]))?");
     }

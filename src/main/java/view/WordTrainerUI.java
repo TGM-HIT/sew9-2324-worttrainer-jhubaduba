@@ -8,6 +8,11 @@ import java.awt.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * UI class of WordTrainer game
+ * @author Julian Huber
+ * @version 2024-01-8
+ */
 public class WordTrainerUI extends JPanel {
     private final JLabel[] labels = new JLabel[5];
     private final JTextField field = new JTextField(5);
@@ -23,14 +28,14 @@ public class WordTrainerUI extends JPanel {
         this.labels[2] = new JLabel("Words trained: ");
         this.labels[3] = new JLabel("0");
         this.labels[4] = new JLabel("0");
-        //ActionCommand fuer das JTextField
+        //ActionCommand for JTextField
         this.field.setActionCommand("Enter");
         //PAGE_START Layout mit Label 0 und dem Textfield
         JPanel top = new JPanel(new GridLayout(2, 1));
         top.add(labels[0]);
         top.add(field);
         this.add(top, BorderLayout.PAGE_START);
-        // PAGE_CENTER Initiieren eines Platzhalterbilds. Exception wird gefangen
+        // PAGE_CENTER Initialising placeholder
         try {
             //ImageIcon icon = new ImageIcon(new URL("https://cohenwoodworking.com/wp-content/uploads/2016/09/image-placeholder-500x500.jpg"));
             ImageIcon icon = new ImageIcon(new URL("https://mypresta.eu/content/uploads/2013/05/loading.png"));
