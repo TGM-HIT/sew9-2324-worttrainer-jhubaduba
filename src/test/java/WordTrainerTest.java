@@ -1,3 +1,5 @@
+import model.JSONSaveManager;
+import model.SaveManager;
 import model.WordPair;
 import model.WordTrainer;
 import org.junit.jupiter.api.Assertions;
@@ -5,10 +7,16 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class WordPairTest {
+/**
+ * Tests the Model of WordTrainer
+ * @author Julian Huber
+ * @version 2024-01-08
+ */
+public class WordTrainerTest {
 
     @Test
     @DisplayName("Testing creation of WordPair Object")
