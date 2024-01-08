@@ -1,9 +1,6 @@
 package control;
 
-import model.JSONSaveManager;
-import model.SaveManager;
-import model.WordPair;
-import model.WordTrainer;
+import model.*;
 import view.WordTrainerFrame;
 import view.WordTrainerUI;
 
@@ -41,7 +38,7 @@ public class WordTrainerControl implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e){
-        if(e.getActionCommand().equals("Enter")){
+        if(e.getActionCommand().equals(Actions.ENTER.getValue())){
             String input = ui.getWord();
             this.trainer.check(input);
             this.ui.setStats(this.trainer.getCorrect(), this.trainer.getChecks());
@@ -49,13 +46,13 @@ public class WordTrainerControl implements ActionListener {
             this.ui.setImage(this.trainer.getCurrentEntry().getUrl());
         }
 
-        if(e.getActionCommand().equals("Reset")){
+        if(e.getActionCommand().equals(Actions.RESET.getValue())){
             this.ui.resetUI();
             this.initGame();
             this.trainer.resetStats();
         }
 
-        if(e.getActionCommand().equals("Add word")){
+        if(e.getActionCommand().equals(Actions.ADD.getValue())){
             try{
                 String input = this.ui.showInput("Insert URL!");
                 if(input != null) {
@@ -67,7 +64,7 @@ public class WordTrainerControl implements ActionListener {
         }
 
         //TODO LOAD and SAVE
-        if(e.getActionCommand().equals("Save trainer")){
+        if(e.getActionCommand().equals(Actions.SAVE.getValue())){
             String path = this.ui.showInput("Please enter filepath to save session");
             try {
                 this.saveManager.save(path, this.trainer);
@@ -75,7 +72,7 @@ public class WordTrainerControl implements ActionListener {
                 this.ui.showOutput("Something went wrong while saving!");
             }
         }
-        if(e.getActionCommand().equals("Load trainer")){
+        if(e.getActionCommand().equals(Actions.LOAD.getValue())){
             String path = this.ui.showInput("Please enter filepath to load session");
             try{
                 this.trainer = this.saveManager.load(path);

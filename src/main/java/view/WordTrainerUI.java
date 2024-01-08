@@ -1,6 +1,7 @@
 package view;
 
 import control.WordTrainerControl;
+import model.Actions;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +11,7 @@ import java.net.URL;
 public class WordTrainerUI extends JPanel {
     private final JLabel[] labels = new JLabel[5];
     private final JTextField field = new JTextField(5);
-    private final JButton[] buttons = {new JButton("Reset"), new JButton("Add word"), new JButton("Save trainer"), new JButton("Load trainer")};
+    private final JButton[] buttons = {new JButton(Actions.RESET.getValue()), new JButton(Actions.ADD.getValue()), new JButton(Actions.SAVE.getValue()), new JButton(Actions.LOAD.getValue())};
     private JLabel image;
     private WordTrainerControl control;
 
