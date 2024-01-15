@@ -53,6 +53,6 @@ public class WordPair implements Serializable {
      * @return boolean
      */
     public boolean checkURL(URL url){
-        return url.toString().matches("(?:(?:https?|ftp):\\/\\/|\\b(?:[a-z\\d]+\\.))(?:(?:[^\\s()<>]+|\\((?:[^\\s()<>]+|(?:\\([^\\s()<>]+\\)))?\\))+(?:\\((?:[^\\s()<>]+|(?:\\(?:[^\\s()<>]+\\)))?\\)|[^\\s`!()\\[\\]{};:'\".,<>?«»“”‘’]))?");
+        return url.toString().matches("^(https?://)?[^\s/$.?#].[^\s]*\.(jpg|jpeg|png)$");
     }
 }
